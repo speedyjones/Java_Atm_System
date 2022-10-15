@@ -24,7 +24,7 @@ public class JavaBankingApplication {
 
 
         logs.info("Welcome to ABC Bank....");
-        logs.info("Please Insert Your Card & Procced With Your Transcation !!!");
+        logs.info("Please Insert Your Card & Proceed With Your Transaction !!!");
 
         Scanner cardDetect = new Scanner(System.in);
         int cardDetectValue = cardDetect.nextInt();
@@ -66,7 +66,7 @@ public class JavaBankingApplication {
         return pinReceived;
     }
 
-    public long amount() {
+    public void amount() {
 
 
         logs.fine("Enter The Amount, When You're Ready !!!!");
@@ -75,11 +75,10 @@ public class JavaBankingApplication {
         long amtInput = amountInput.nextInt();
 
         calAmount(amtInput);
-        return amtInput;
 
     }
 
-    public long calAmount(long amtInput) {
+    public void calAmount(long amtInput) {
 
 
         if (amtInput < 100) {
@@ -87,28 +86,28 @@ public class JavaBankingApplication {
 
         } else {
             while (amtInput > 99) {
-                if (amtInput >= 100 && amtInput < 200) {
+                if (amtInput < 200) {
                     amtCount = 100;
                     total = amtInput / amtCount;
                     amtTotal = amtInput - (total * amtCount);
-                } else if (amtInput >= 200 && amtInput < 500) {
+                } else if (amtInput < 500) {
                     amtCount = 200;
                     total = amtInput / amtCount;
                     amtTotal = amtInput - (total * amtCount);
 
-                } else if (amtInput >= 500 && amtInput < 2000) {
+                } else if (amtInput < 2000) {
                     amtCount = 500;
                     total = amtInput / amtCount;
                     amtTotal = amtInput - (total * amtCount);
 
-                } else if (amtInput >= 2000) {
+                } else {
                     amtCount = 2000;
                     total = amtInput / amtCount;
 
                     amtTotal = amtInput - (total * amtCount);
                 }
                 String finalMsg = msg + total + notesMsg + amtCount + "'s";
-                logs.log(Level.INFO,finalMsg);
+                logs.log(Level.INFO, finalMsg);
 
                 amtInput = amtTotal;
 
@@ -117,7 +116,6 @@ public class JavaBankingApplication {
         }
 
 
-        return amtInput;
     }
 
 
